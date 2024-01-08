@@ -1,0 +1,50 @@
+#include <iostream>
+
+class BratRobotic {
+private:
+    double pozitieX;
+    double pozitieY;
+    bool prehensorDeschis;
+
+public:
+    BratRobotic() : pozitieX(0.0), pozitieY(0.0), prehensorDeschis(false) {}
+
+    void deplasareOrizontala(double distanta) {
+        pozitieX += distanta;
+        std::cout << "Deplasare orizontala cu " << distanta << " unitati.\n";
+    }
+
+    void deplasareVerticala(double distanta) {
+        pozitieY += distanta;
+        std::cout << "Deplasare verticala cu " << distanta << " unitati.\n";
+    }
+
+    void deschidePrehensor() {
+        prehensorDeschis = true;
+        std::cout << "Prehensor deschis.\n";
+    }
+
+    void inchidePrehensor() {
+        prehensorDeschis = false;
+        std::cout << "Prehensor inchis.\n";
+    }
+
+    void afiseazaStare() {
+        std::cout << "Starea bratului robotic:\n";
+        std::cout << "Pozitie X: " << pozitieX << "\n";
+        std::cout << "Pozitie Y: " << pozitieY << "\n";
+        std::cout << "Stare prehensor: " << (prehensorDeschis ? "Deschis" : "Inchis") << "\n";
+    }
+};
+
+int main() {
+    BratRobotic brat;
+
+    brat.deplasareOrizontala(5.0);
+    brat.deplasareVerticala(3.0);
+    brat.deschidePrehensor();
+
+    brat.afiseazaStare();
+
+    return 0;
+}
